@@ -4,14 +4,21 @@
 from json import dumps
 
 from .base import Base
-
+from ..nlp import best_match
 
 class M(Base):
     """Say hello, world!"""
 
     def run(self):
         question = self.options["<question>"]
-        print(question)
-        # print("I know what I need to do to be successful in my role|ALI.5")
-        # print('Hello, world!')
-        # print('You supplied the following options:', dumps(self.options, indent=2, sort_keys=True))
+
+        # from ..nlp.best_match import load_file
+        # print("return ",load_file(question))
+        
+        b = best_match.BestMatch()
+        # b.load_file()
+        print(b.run_best_match(question))
+        
+        # print(b.df.head())
+        # print(b.run_best_match(question).head())
+    
