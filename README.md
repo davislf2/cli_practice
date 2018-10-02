@@ -21,10 +21,10 @@ pip install -e .[test]
 There are four different commands in this cli.
 
 ```sh
-qmatch m <question> 	# Find the top 2 matched questions
-qmatch hello			# 
+qmatch m <question>		# Find the top 2 matched questions
+qmatch hello			# Hello World
 qmatch -h | --help		# Help function
-qmatch --version		# 
+qmatch --version		# Version of this app
 ```
 
 For example, if you command
@@ -35,13 +35,7 @@ qmatch m "I understand clearly what I need to do to be successful in my current 
 
 The result will look like
 
-```
-![alt text](http://url/to/img.png)
-```
-
-![screenshot 2018-10-02 at 7.30.23 PM](./resource/screenshot 2018-10-02 at 7.30.23 PM.png)
-
-
+![alt text](https://raw.githubusercontent.com/davislf2/qmatch-cli/master/resource/screenshot%202018-10-02%20at%207.30.23%20PM.png)
 
 
 
