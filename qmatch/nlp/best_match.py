@@ -4,10 +4,16 @@ import pandas as pd
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+# from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.naive_bayes import MultinomialNB
 
 class BestMatch(object):
 
     def __init__(self):
+        self.question = None
         self.df = None
         self.df_ref = None
         self.question_code_df = None
@@ -19,9 +25,9 @@ class BestMatch(object):
         self.load_ref_file()
         self.clean_data(self.df)
         # self.show_data_distribution(self.df)
-        
-        results = self.question
-        return results
+
+        results = self.model(self.df, self.question)
+        return results[0]
         
     def load_file(self):
         # Load labeled data, remove commas and rename column
@@ -59,6 +65,22 @@ class BestMatch(object):
     #     fig = plt.figure(figsize=(8,6))
     #     df.groupby('code').code.count().plot.bar(ylim=0)
     #     plt.show()
+        
+    # def train(self, classifier, X, y):
+    #     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=33)
+    #     # print(X_train[:5], y_train[:5])
+    #     # print(X_test[:5], y_test[:5])
+    #     classifier.fit(X_train, y_train)
+    #     print("Accuracy: %s" % classifier.score(X_test, y_test))
+    #     return classifier
 
+    def model(self, df, question):
+        X_train, X_test, y_train, y_test = train_test_split(df['question'], df['code'], random_state = 0)
+        count_vect = CountVectorizer()
+        X_train_counts = count_vect.fit_transform(X_train)
+        tfidf_transformer = TfidfTransformer()
+        X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
+        clf = MultinomialNB().fit(X_train_tfidf, y_train)
+        return clf.predict(count_vect.transform([question]))
     
     

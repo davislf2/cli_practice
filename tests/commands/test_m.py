@@ -15,4 +15,4 @@ class TestM(TestCase):
     def test_returns_best_match(self):
         question = "I understand what I need to do to move up at StarWars"
         output = popen(['qmatch', 'm', question], stdout=PIPE).communicate()[0]
-        self.assertTrue(question.encode() in output)
+        self.assertTrue(b'ALI.5' in output)
