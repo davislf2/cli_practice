@@ -16,9 +16,8 @@ class M(Base):
         # print("return ",load_file(question))
         
         b = best_match.BestMatch()
-        # b.load_file()
         print(b.run_best_match(question))
-        
-        # print(b.df.head())
+
+        # print(b.df.shape)
         # print(b.run_best_match(question).head())
     
