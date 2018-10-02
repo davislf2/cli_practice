@@ -33,8 +33,12 @@ class TestBestMatch(TestCase):
         self.test_clean_data()
         self.test_load_ref_file()
         question = "I understand what I need to do to move up at StarWars"
-        result = self.__class__.b.model(self.__class__.df, question)
-        # question = "I understand what I need to do to move up at StarWars"
-        # output = popen(['qmatch', 'm', question], stdout=PIPE).communicate()[0]
-        # print(output)
-        self.assertEqual('ALI.5', result[0])
+        result = self.__class__.b.model(self.__class__.df, self.__class__.df_ref, question)
+        q0 = "I know what I need to do to be successful in my role"
+        q1 = "The information I need to do my job effectively is readily available"
+        p0 = 0.9312706418495941
+        p1 = 0.06823556535816563
+        self.assertEqual(q0, result['question'][0])
+        self.assertEqual(q1, result['question'][1])
+        self.assertEqual(p0, result['prob'][0])
+        self.assertEqual(p1, result['prob'][1])
