@@ -1,5 +1,5 @@
 # gitignore in this project
-.resource/
+resource/
 .idea/
 .vscode/
 
