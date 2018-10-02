@@ -18,6 +18,6 @@ class M(Base):
         b = best_match.BestMatch()
         print(b.run_best_match(question))
 
-        # print(b.df.shape)
+        # print(b.df_ref.head())
         # print(b.run_best_match(question).head())
     
