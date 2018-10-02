@@ -24,9 +24,7 @@ class BestMatch(object):
         self.load_file()
         self.load_ref_file()
         self.clean_data(self.df)
-        # self.show_data_distribution(self.df)
         results = self.model(self.df, self.df_ref, self.question)
-        
         return results
         
     def load_file(self):
@@ -58,13 +56,6 @@ class BestMatch(object):
         df = df.dropna()
         self.question_code_df = df['code'].drop_duplicates()
         self.df = df
-    
-    # def show_data_distribution(self, df):
-    #     # (Optional) Show data distribution of df
-    #     # Warning: It will stuck in VSCode terminal
-    #     fig = plt.figure(figsize=(8,6))
-    #     df.groupby('code').code.count().plot.bar(ylim=0)
-    #     plt.show()
 
     def model(self, df, df_ref, question):
         

@@ -12,7 +12,7 @@ Options:
   --version                         Show version.
 
 Examples:
-  qmatch hello
+  qmatch m "I understand clearly what I need to do to be successful in my current role"
 
 Help:
   For help using this tool, please open an issue on the Github repository:
