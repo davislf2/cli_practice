@@ -1,5 +1,7 @@
 # gitignore in this project
-./resource
+.resource/
+.idea/
+.vscode/
 
 # from https://github.com/github/gitignore/blob/master/Python.gitignore
 
