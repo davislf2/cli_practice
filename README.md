@@ -1,12 +1,8 @@
 # qmatch-cli 
 
-A command-line-interface (CLI) tool for finding the top 2 matched questions from user's input
+A command-line-interface (CLI) tool for finding the top 2 matched questions from user's input. It use [Multinomial Naive Bayes from Scikit-learn](http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html) to classify the most correlated questions.
 
-Author: 
-
-[Davis Hong (davislf2)](https://github.com/davislf2)
-
-davislf2.net@gmail.com
+Author: [Davis Hong (davislf2)](https://github.com/davislf2) | davislf2.net@gmail.com
 
 
 
@@ -39,7 +35,24 @@ qmatch m "I understand clearly what I need to do to be successful in my current 
 
 The result will look like
 
+```
+![alt text](http://url/to/img.png)
+```
+
 ![screenshot 2018-10-02 at 7.30.23 PM](./resource/screenshot 2018-10-02 at 7.30.23 PM.png)
+
+
+
+
+
+## Reference Questions
+
+| Question                                                     | Code  |
+| ------------------------------------------------------------ | ----- |
+| I know what I need to do to be successful in my role         | ALI.5 |
+| The information I need to do my job effectively is readily available | ENA.3 |
+| We are encouraged to be innovative even though some of our initiatives may not succeed | INN.2 |
+| We hold ourselves and our team members accountable for results | TEA.2 |
 
 
 

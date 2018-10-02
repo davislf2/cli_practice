@@ -1,5 +1,4 @@
 # gitignore in this project
-resource/
 .idea/
 .vscode/
 htmlcov/
