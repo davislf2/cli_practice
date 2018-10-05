@@ -1,6 +1,6 @@
 # qmatch-cli 
 
-A command-line-interface (CLI) tool for finding the top 2 matched questions from user's input. It use [Multinomial Naive Bayes from Scikit-learn](http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html) to classify the most correlated questions.
+A command-line-interface (CLI) tool for finding the top 2 matched questions from user's input. From the data distribution, it shows that four type of reference questions have similar amount of data. From the data we collect, we can find that the features correlated to four question types are independent. Therefore, we implement TF-IDF to calculate the frequency of each word in documents, and then we use [Multinomial Naive Bayes from Scikit-learn](http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html) to classify the most correlated questions. From the given data set with cross-validation, it has achieved really high accuracy (almost 100%).
 
 Author: [Davis Hong (davislf2)](https://github.com/davislf2) | davislf2.net@gmail.com
 
@@ -21,8 +21,7 @@ pip install -e .[test]
 There are four different commands in this cli.
 
 ```sh
-qmatch m <question>		# Find the top 2 matched questions
-qmatch hello			# Hello World
+qmatch match <question>	# Find the top 2 matched questions
 qmatch -h | --help		# Help function
 qmatch --version		# Version of this app
 ```
@@ -30,7 +29,7 @@ qmatch --version		# Version of this app
 For example, if you command
 
 ```sh
-qmatch m "I understand clearly what I need to do to be successful in my current role"
+qmatch match "I understand clearly what I need to do to be successful in my current role"
 ```
 
 The result will look like
@@ -64,14 +63,12 @@ qmatch
     ├── __init__.py
     ├── __main__.py
     ├── cli.py
-    ├── test
+    ├── tests
     ├── nlp
     |	├── __init__.py
     |	└── best_match.py
     └── commands
         ├── __init__.py
-        ├── base.py
-        ├── hello.py
         └── m.py
 ```
 
@@ -94,15 +91,15 @@ This project has passed 97% coverage by unittest.
 Name                          Stmts   Miss  Cover   Missing
 -----------------------------------------------------------
 qmatch/__init__.py                1      0   100%
-qmatch/__main__.py                2      2     0%   1-2
-qmatch/cli.py                    13      0   100%
-qmatch/commands/__init__.py       2      0   100%
+qmatch/__main__.py                3      3     0%   3-6
+qmatch/cli.py                    15      0   100%
+qmatch/commands/__init__.py       1      0   100%
 qmatch/commands/base.py           7      1    86%   13
-qmatch/commands/hello.py          6      0   100%
-qmatch/commands/m.py             15      0   100%
+qmatch/commands/match.py         20      0   100%
 qmatch/nlp/__init__.py            1      0   100%
-qmatch/nlp/best_match.py         56      0   100%
+qmatch/nlp/best_match.py         29      0   100%
+qmatch/nlp/preprocessing.py      28      0   100%
 -----------------------------------------------------------
-TOTAL                           103      3    97%
+TOTAL                           105      4    96%
 ```
 

@@ -2,8 +2,7 @@
 qmatch
 
 Usage:
-  qmatch m <question>
-  qmatch hello
+  qmatch match <question>
   qmatch -h | --help
   qmatch --version
 
@@ -19,18 +18,18 @@ Help:
   https://github.com/davislf2/qmatch-cli
 """
 
-
 from inspect import getmembers, isclass
-
 from docopt import docopt
-
 from . import __version__ as VERSION
+
+import qmatch.commands
 
 def main():
     """Main CLI entrypoint."""
-    import qmatch.commands
     options = docopt(__doc__, version=VERSION)
+    find_command(options)
 
+def find_command(options):
     # Here we'll try to dynamically match the command the user is trying to run
     # with a pre-defined command class we've already created.
     for (k, v) in options.items(): 

@@ -17,15 +17,8 @@ class TestHelp(TestCase):
 
 class TestVersion(TestCase):
     def test_returns_version_information(self):
-        # try:
         output = popen(['qmatch', '--version'], stdout=PIPE).communicate()[0]
         self.assertEqual(str(output.strip(), encoding = "utf-8"), VERSION)
-        # except NotImplementedError:
-        #     raise SkipTest()
-
-# class TestError(TestCase):
-    # def test_not_implemented(self):
-        # raise NotImplementedError('You must implement the run() method yourself!')
 
 if __name__ == "__main__":
     unittest.main()
