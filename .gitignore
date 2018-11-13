@@ -2,6 +2,7 @@
 .idea/
 .vscode/
 htmlcov/
+repo.bundle
 
 # from https://github.com/github/gitignore/blob/master/Python.gitignore
 
