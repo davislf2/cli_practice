@@ -7,6 +7,7 @@ from .base import Base
 from ..nlp import preprocessing
 from ..nlp import best_match
 
+
 class Match(Base):
     """Match the commands"""
 
@@ -26,7 +27,7 @@ class Match(Base):
         self.align_print("Questions", "Probability")
         for index, row in result.iterrows():
             self.align_print(row['question'], row['prob'])
-    
+
     def align_print(self, x, y):
         line_new = '{:<90}  {:<12}'.format(x, y)
         print(line_new)

@@ -4,6 +4,7 @@ from unittest import TestCase
 from qmatch.nlp import preprocessing
 import pandas as pd
 
+
 class TestPreprocessing(TestCase):
     prep = None
     b = None

@@ -31,15 +31,16 @@ class RunTests(Command):
 
 
 setup(
-    name = 'qmatch',
-    version = __version__,
-    description = 'A cli for finding the top 2 matched question types from user\'s input',
-    long_description = long_description,
-    url = 'https://github.com/davislf2/qmatch-cli',
-    author = 'Davis Hong',
-    author_email = 'davislf2.net@gmail.com',
-    license = 'MIT license',
-    classifiers = [
+    name='qmatch',
+    version=__version__,
+    description=
+    'A cli for finding the top 2 matched question types from user\'s input',
+    long_description=long_description,
+    url='https://github.com/davislf2/qmatch-cli',
+    author='Davis Hong',
+    author_email='davislf2.net@gmail.com',
+    license='MIT license',
+    classifiers=[
         'Intended Audience :: Developers',
         'Topic :: Utilities',
         'License :: Public Domain',
@@ -56,16 +57,16 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
-    keywords = 'cli',
-    packages = find_packages(exclude=['docs', 'tests*']),
-    install_requires = ['docopt', 'pandas', 'scikit-learn'],
-    extras_require = {
+    keywords='cli',
+    packages=find_packages(exclude=['docs', 'tests*']),
+    install_requires=['docopt', 'pandas', 'scikit-learn'],
+    extras_require={
         'test': ['coverage', 'pytest', 'pytest-cov'],
     },
-    entry_points = {
+    entry_points={
         'console_scripts': [
             'qmatch=qmatch.__main__:main',
         ],
     },
-    cmdclass = {'test': RunTests},
+    cmdclass={'test': RunTests},
 )
